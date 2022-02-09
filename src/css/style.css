@@ -3,6 +3,15 @@
 }
 
 body {
-  background-color: #000000;
   font-family: 'Space Grotesk', sans-serif;
+  color: #FFFFFF;
+  padding: 7px; /* debugging only */
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  min-height: 100vh;
 }

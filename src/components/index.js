@@ -1,4 +1,4 @@
-import { Container } from './SignUp_styles.js';
+import { Container } from './userForms_styles.js';
 
 export {
   Container
