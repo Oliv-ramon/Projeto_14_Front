@@ -1,23 +1,72 @@
 import React from 'react';
-import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header } from '../../components';
 
-import { RiEqualizerFill } from 'react-icons/ri';
-import { TiHome } from 'react-icons/ti';
-import { BsFillPersonFill } from 'react-icons/bs';
-import { MdShoppingCart } from 'react-icons/md';
-import { GiFullMotorcycleHelmet } from 'react-icons/gi';
-import { CgProfile } from 'react-icons/cg';
+import ProductCard from './ProductCard.js';
 
-import BlueHelmet from '../../assets/NORISK_FORCE-MONOCOLOR-MATT-BLUE_3.png';
-import WhiteHelmet from '../../assets/NORISK-FF345-ROUTE-MOTION--C--VISEIRA-SOLAR--BRANCO-PRETO-VERMELHO-3-min.png';
+import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Footer, Header, BlueHelmet, WhiteHelmet } from '../../components';
+
+import { CartIcon, HelmetIcon, HomeIcon, PersonIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
+
+
+const productsArray = [
+  {
+    sku: '001',
+    description: 'Capacete Azul Fosco1',
+    image: BlueHelmet,
+    size: '58',
+    price: 67000
+  },
+  {
+    sku: '002',
+    description: 'Capacete Azul Fosco2',
+    image: BlueHelmet,
+    size: '60',
+    price: 67000
+  },
+  {
+    sku: '003',
+    description: 'Capacete Azul Fosco3',
+    image: BlueHelmet,
+    size: '60',
+    price: 67000
+  },
+  {
+    sku: '004',
+    description: 'Capacete Branco com nome comprido',
+    image: WhiteHelmet,
+    size: '58',
+    price: 71000
+  },
+  {
+    sku: '005',
+    description: 'Capacete Branco com nome comprido',
+    image: WhiteHelmet,
+    size: '60',
+    price: 71000
+  },
+  {
+    sku: '006',
+    description: 'Capacete Branco com nome comprido',
+    image: WhiteHelmet,
+    size: '59',
+    price: 71000
+  },
+  {
+    sku: '007',
+    description: 'Capacete Branco com nome comprido',
+    image: WhiteHelmet,
+    size: '62',
+    price: 71000
+  }
+];
+
 
 export default function MainPage() {
 
   return (
     <Container>
       <Header>
-        <GiFullMotorcycleHelmet size='42px' color='#424246' />
-        <CgProfile size='42px' color='#555' />
+        <HelmetIcon size='42px' color='#424246' />
+        <ProfileIcon size='42px' color='#555' />
       </Header>
       <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
 
@@ -29,7 +78,7 @@ export default function MainPage() {
             placeholder='Buscar produtos' />          
         </SearchField>
 
-        <FilterIcon><RiEqualizerFill /></FilterIcon>
+        <FilterIcon><SliderIcon /></FilterIcon>
       </SearchBar>
 
       <CategoriesBar>
@@ -42,60 +91,17 @@ export default function MainPage() {
       </CategoriesBar>
 
       <ProductsList>
-        <ProductCard>
-          <img src={BlueHelmet} alt='blue helmet' />
-          <h2>Capacete Azul Fosco</h2>
-          <h3>R$ 670,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={WhiteHelmet} alt='white helmet' />
-          <h2>Capacete Branco com nome comprido</h2>
-          <h3>R$ 710,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={BlueHelmet} alt='blue helmet' />
-          <h2>Capacete Azul Fosco</h2>
-          <h3>R$ 670,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={BlueHelmet} alt='blue helmet' />
-          <h2>Capacete Azul Fosco</h2>
-          <h3>R$ 670,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={WhiteHelmet} alt='white helmet' />
-          <h2>Capacete Branco com nome comprido</h2>
-          <h3>R$ 710,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={WhiteHelmet} alt='white helmet' />
-          <h2>Capacete Branco com nome comprido</h2>
-          <h3>R$ 710,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={BlueHelmet} alt='blue helmet' />
-          <h2>Capacete Azul Fosco</h2>
-          <h3>R$ 670,00</h3>
-        </ProductCard>
-
-        <ProductCard>
-          <img src={WhiteHelmet} alt='white helmet' />
-          <h2>Capacete Branco com nome comprido</h2>
-          <h3>R$ 710,00</h3>
-        </ProductCard>
-
+        {productsArray.map( item => (
+          <ProductCard>
+            {item}
+          </ProductCard>
+        ))}
       </ProductsList>
 
       <Footer>
-        <TiHome size='42px' color='#4573E0' />
-        <MdShoppingCart size='42px' color='#535353' />
-        <BsFillPersonFill size='42px' color='#535353' />
+        <HomeIcon size='42px' color='#4573E0' />
+        <CartIcon size='42px' color='#535353' />
+        <PersonIcon size='42px' color='#535353' />
 
       </Footer>
 

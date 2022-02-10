@@ -88,7 +88,7 @@ flex-wrap: wrap;
 gap: 21px 21px;
 `;
 
-const ProductCard = styled.li`
+const ItemCard = styled.li`
 width: 42%;
 height: 220px;
 padding: 5px;
@@ -145,4 +145,4 @@ background-color: #000000;
 `;
 
 
-export { MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header };
+export { MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ItemCard, Footer, Header };
