@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SingIn } from "./pages";
 
 function App()  {
   return (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<h1>Olá Mundo!!! e digo mais, Hello World!!</h1>}/>
+            <Route path="/" element={<SingIn/>}/>
           </Routes>
         </BrowserRouter>
   )
