@@ -1,11 +1,11 @@
 import React from 'react';
 
 import ProductCard from './ProductCard.js';
+import MainFooter from './MainFooter.js';
 
-import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Footer, Header, BlueHelmet, WhiteHelmet } from '../../components';
+import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header, BlueHelmet, WhiteHelmet } from '../../components';
 
-import { CartIcon, HelmetIcon, HomeIcon, PersonIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
-
+import { HelmetIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
 const productsArray = [
   {
@@ -98,12 +98,7 @@ export default function MainPage() {
         ))}
       </ProductsList>
 
-      <Footer>
-        <HomeIcon size='42px' color='#4573E0' />
-        <CartIcon size='42px' color='#535353' />
-        <PersonIcon size='42px' color='#535353' />
-
-      </Footer>
+      <MainFooter />
 
     </Container>
   );
