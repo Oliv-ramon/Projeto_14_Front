@@ -59,8 +59,8 @@ export default function SignIn() {
         />
         <Button disabled={loading}>Entrar</Button>
       </Form>
-      <StyledLink to="/sing-up">
-        Já tem uma conta? Faça login
+      <StyledLink to="/sign-up">
+        Primeira vez? Cadastre-se!
       </StyledLink>
     </Container>
   )
