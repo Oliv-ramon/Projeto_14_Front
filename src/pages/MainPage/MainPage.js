@@ -17,8 +17,8 @@ export default function MainPage() {
   return (
     <Container>
       <Header>
-        <GiFullMotorcycleHelmet size='45px' color='#424246' />
-        <CgProfile size='60px' color='yellow' />
+        <GiFullMotorcycleHelmet size='42px' color='#424246' />
+        <CgProfile size='42px' color='yellow' />
       </Header>
       <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
 
@@ -91,9 +91,9 @@ export default function MainPage() {
       </ProductsList>
 
     <Footer>
-      <TiHome size='45px' color='#4573E0'/>
-      <MdShoppingCart size='45px' color='#424246' />
-      <BsFillPersonFill size='45px' color='#424246' />
+      <TiHome size='42px' color='#4573E0'/>
+      <MdShoppingCart size='42px' color='#535353' />
+      <BsFillPersonFill size='42px' color='#535353' />
 
     </Footer>
     

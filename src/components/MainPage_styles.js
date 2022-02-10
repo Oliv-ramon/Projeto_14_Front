@@ -4,6 +4,7 @@ const MainTitle = styled.div`
   width: 100%;
   height: 100%;
   margin: 20px;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +53,6 @@ const FilterIcon = styled.div`
 const CategoriesBar = styled.ul`
 width: 100%;
 height: 50px;
-margin: 10px;
 display: flex;
 flex-direction: row;
 align-items: center;
@@ -68,6 +68,7 @@ gap: 10px;
 const ProductsList = styled.ul`
 width: 100%;
 display: flex;
+margin: 0 auto 50px auto;
 justify-content: center;
 overflow-y: scroll;
 flex-wrap: wrap;
@@ -108,7 +109,7 @@ font-weight: 700;
 
 const Header = styled.div`
 width: 100%;
-height: 80px;
+height: 60px;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -117,12 +118,14 @@ border: 1px dashed orange;
 
 const Footer = styled.div`
 width: 100%;
-height: 80px;
+position: fixed;
+bottom: 0;
+right: 0;
+padding: 10px 5px 0 5px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-
-border: 1px dashed yellow;
+background-color: #000000;
 `;
 
 
