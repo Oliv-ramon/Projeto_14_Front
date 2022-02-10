@@ -92,7 +92,7 @@ export default function MainPage() {
 
       <ProductsList>
         {productsArray.map( item => (
-          <ProductCard>
+          <ProductCard key={item.sku} >
             {item}
           </ProductCard>
         ))}

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ItemCard } from "../../components";
 
 export default function ProductCard({children}) {
