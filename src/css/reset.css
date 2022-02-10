@@ -51,6 +51,6 @@ i {
 	margin: auto;
  }
 
-input, button, a{
-	all: unset;
-}
+ input, button, a {
+		all: unset;
+ }

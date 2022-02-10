@@ -1,12 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { AuthProvider } from "./contexts/AuthContext";
+import { SignIn } from "./pages";
+
 function App()  {
   return (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<h1>Olá Mundo!!! e digo mais, Hello World!!</h1>}/>
-          </Routes>
-        </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/sign-in" element={<SignIn/>}/>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
