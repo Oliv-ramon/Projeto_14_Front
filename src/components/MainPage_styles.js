@@ -98,18 +98,24 @@ font-weight: 700;
 }
 `;
 
+const Header = styled.div`
+width: 100%;
+height: 80px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border: 1px dashed orange;
+`;
+
 const Footer = styled.div`
 width: 100%;
 height: 80px;
+display: flex;
+align-items: center;
+justify-content: space-between;
 
 border: 1px dashed yellow;
 `;
 
-const Header = styled.div`
-width: 100%;
-height: 80px;
-
-border: 1px dashed orange;
-`;
 
 export { MainTitle, SearchBar, SearchInput, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header };
