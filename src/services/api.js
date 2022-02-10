@@ -9,8 +9,10 @@ function signUp(formData) {
   return promisse;
 }
 
-async function signIn(formData) {
-  await axios.post(`${BASE_URL}/auth/sign-in`, formData);
+function signIn(formData) {
+  const promisse = axios.post(`${BASE_URL}/auth/sign-in`, formData);
+
+  return promisse;
 }
 
 const api = {
