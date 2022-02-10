@@ -28,6 +28,7 @@ export default function SignIn() {
     
     try {
       const { data } = await api.signIn(formData);
+      console.log(data)
       login(data);
       setLoading(false);
       navigate("/home")
