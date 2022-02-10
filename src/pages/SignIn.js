@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Container, Form, Input, Button, StyledLink } from "./../components/FormComponents"
+import { Container, Form, Input, Button, StyledLink } from "../components/FormComponents"
 
-export default function SingIn() {
+export default function SignIn() {
   const [formData, setFormData] = useState(
     {
       email: "",

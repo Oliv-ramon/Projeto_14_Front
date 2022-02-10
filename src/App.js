@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SingIn } from "./pages";
+import { SignIn } from "./pages";
 
 function App()  {
   return (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<SingIn/>}/>
+            <Route path="/sign-in" element={<SignIn/>}/>
           </Routes>
         </BrowserRouter>
   )

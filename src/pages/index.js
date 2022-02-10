@@ -1,5 +1,5 @@
-import SingIn from "./SingIn";
+import SignIn from "./SignIn";
 
 export {
-  SingIn,
+  SignIn,
 }
