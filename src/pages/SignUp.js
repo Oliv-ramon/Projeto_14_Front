@@ -1,10 +1,10 @@
-import { Container } from '../../components';
+import { Container } from '../components/FormComponents/index';
 
 export default function SignUp() {
   
   return (
     <Container>
-      hmm
+      kjhljgjhg
     </Container>
   );
 }
