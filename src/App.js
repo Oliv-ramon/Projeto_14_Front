@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import "./css/reset.css";
+import "./css/style.css";
+
 import { SignUp, MainPage } from './pages'
 
 function App()  {

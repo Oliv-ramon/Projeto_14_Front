@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FiSearch } from 'react-icons/fi';
 
 const MainTitle = styled.div`
   width: 100%;
@@ -18,17 +19,16 @@ const MainTitle = styled.div`
 
 const SearchBar = styled.div`
 width: 100%;
-height: 32px;
-margin: 10px;
+height: 40px;
 display: flex;
 align-items: center;
 `;
 
-const SearchInput = styled.input`
-  width: 75%;
+const SearchField = styled.div`
+  min-width: 85%;
   height: 100%;
-  margin: 0 10px 0 0;
-  padding: 10px;
+  margin: 0 8px 0 0;
+  padding: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,11 +36,23 @@ const SearchInput = styled.input`
   font-size: 20px;
   color: #535353;
   border-radius: 10px;
+  & input {
+    width: 90%;
+    margin: 0 0 0 10px;
+  } 
+`;
+
+const CustomLoupe = styled(FiSearch)`
+  width: 30px;
+  height: 30px;
+  margin: 0 10px 0 0;
+  color: #535353;
 `;
 
 const FilterIcon = styled.div`
   width: 60px;
-  height: 50px;
+  height: 100%;
+  margin: 0 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,10 +66,11 @@ const CategoriesBar = styled.ul`
 width: 100%;
 height: 50px;
 display: flex;
+margin: 10px 0;
 flex-direction: row;
 align-items: center;
 overflow-x: scroll;
-gap: 10px;
+gap: 14px;
 & li {
   font-size: 20px;
   font-weight: 700;
@@ -68,7 +81,7 @@ gap: 10px;
 const ProductsList = styled.ul`
 width: 100%;
 display: flex;
-margin: 0 auto 50px auto;
+margin: 0 auto 64px auto;
 justify-content: center;
 overflow-y: scroll;
 flex-wrap: wrap;
@@ -76,7 +89,7 @@ gap: 21px 21px;
 `;
 
 const ProductCard = styled.li`
-width: 46%;
+width: 42%;
 height: 220px;
 padding: 5px;
 display: flex;
@@ -97,6 +110,10 @@ font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 & h3 {
   width: 95%;
@@ -113,7 +130,6 @@ height: 60px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-border: 1px dashed orange;
 `;
 
 const Footer = styled.div`
@@ -121,7 +137,7 @@ width: 100%;
 position: fixed;
 bottom: 0;
 right: 0;
-padding: 10px 5px 0 5px;
+padding: 10px 17px;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -129,4 +145,4 @@ background-color: #000000;
 `;
 
 
-export { MainTitle, SearchBar, SearchInput, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header };
+export { MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header };

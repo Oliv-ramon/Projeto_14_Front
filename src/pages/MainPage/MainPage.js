@@ -1,7 +1,6 @@
-import { Container, MainTitle, SearchBar, SearchInput, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header } from '../../components';
+import React from 'react';
+import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ProductCard, Footer, Header } from '../../components';
 
-
-import { FiSearch } from 'react-icons/fi';
 import { RiEqualizerFill } from 'react-icons/ri';
 import { TiHome } from 'react-icons/ti';
 import { BsFillPersonFill } from 'react-icons/bs';
@@ -13,20 +12,23 @@ import BlueHelmet from '../../assets/NORISK_FORCE-MONOCOLOR-MATT-BLUE_3.png';
 import WhiteHelmet from '../../assets/NORISK-FF345-ROUTE-MOTION--C--VISEIRA-SOLAR--BRANCO-PRETO-VERMELHO-3-min.png';
 
 export default function MainPage() {
-  
+
   return (
     <Container>
       <Header>
         <GiFullMotorcycleHelmet size='42px' color='#424246' />
-        <CgProfile size='42px' color='yellow' />
+        <CgProfile size='42px' color='#555' />
       </Header>
       <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
 
       <SearchBar>
-      <FiSearch color='#424246' size='28px'/>
-        <SearchInput
-          type='text'
-          placeholder='Buscar produtos'/>
+        <SearchField>
+          <CustomLoupe />
+          <input
+            type='text'
+            placeholder='Buscar produtos' />          
+        </SearchField>
+
         <FilterIcon><RiEqualizerFill /></FilterIcon>
       </SearchBar>
 
@@ -90,13 +92,13 @@ export default function MainPage() {
 
       </ProductsList>
 
-    <Footer>
-      <TiHome size='42px' color='#4573E0'/>
-      <MdShoppingCart size='42px' color='#535353' />
-      <BsFillPersonFill size='42px' color='#535353' />
+      <Footer>
+        <TiHome size='42px' color='#4573E0' />
+        <MdShoppingCart size='42px' color='#535353' />
+        <BsFillPersonFill size='42px' color='#535353' />
 
-    </Footer>
-    
+      </Footer>
+
     </Container>
   );
 }
