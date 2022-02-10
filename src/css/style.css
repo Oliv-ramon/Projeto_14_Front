@@ -3,6 +3,8 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vw;
   font-family: 'Space Grotesk', sans-serif;
   color: #FFFFFF;
 }
@@ -12,5 +14,4 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #000000;
-  min-height: 100vh;
 }

@@ -33,7 +33,7 @@ const SearchInput = styled.input`
   justify-content: center;
   background-color: #232227;
   font-size: 20px;
-  color: #424246;
+  color: #535353;
   border-radius: 10px;
 `;
 
@@ -51,35 +51,33 @@ const FilterIcon = styled.div`
 
 const CategoriesBar = styled.ul`
 width: 100%;
-height: 80px;
+height: 50px;
 margin: 10px;
 display: flex;
 flex-direction: row;
 align-items: center;
-overflow-x: auto;
-white-space: nowrap;
-gap: 0 14px;
-list-style-type: none;
+overflow-x: scroll;
+gap: 10px;
 & li {
-  
   font-size: 20px;
   font-weight: 700;
-  color: #424246;
+  color: #535353;
 }
 `;
 
 const ProductsList = styled.ul`
 width: 100%;
-margin: 10px;
 display: flex;
-overflow-x: scroll;
+justify-content: center;
+overflow-y: scroll;
 flex-wrap: wrap;
-gap: 20px;
+gap: 21px 21px;
 `;
 
 const ProductCard = styled.li`
-width: 120px;
-height: 150px;
+width: 46%;
+height: 220px;
+padding: 5px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -88,13 +86,23 @@ border-radius: 10px;
 background-color: #232227;
 font-weight: 700;
 & img {
-  width: 80%;
+  width: 95%;
+  margin: 0 auto auto auto;
+  object-fit: contain;
 }
 & h2 {
-  width: 80%;
-  font-size: 12px;
-  line-height: 15px;
-  text-overflow: ellipsis;
+  width: 95%;
+  margin: 5px auto;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+& h3 {
+  width: 95%;
+  margin: auto auto 0 auto;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
 }
 `;
 
