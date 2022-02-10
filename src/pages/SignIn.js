@@ -1,5 +1,10 @@
-import { useState } from "react"
-import { Container, Form, Input, Button, StyledLink } from "../components/FormComponents"
+import { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom";
+
+import { Container, Form, Input, Button, StyledLink } from "../components/FormComponents";
+
+import AuthContext from "../contexts/AuthContext";
+import api from "../services/api";
 
 export default function SignIn() {
   const [formData, setFormData] = useState(
@@ -8,7 +13,9 @@ export default function SignIn() {
       password: "",
     }
   );
+  const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,6 +23,19 @@ export default function SignIn() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    setLoading(true);
+    
+    try {
+      const { data } = await api.signIn(formData);
+      console.log(data)
+      login(data);
+      setLoading(false);
+      navigate("/home")
+    } catch {
+      setLoading(false);
+      alert("Erro, tente novamente");
+    }
   }
 
   return (
@@ -40,9 +60,9 @@ export default function SignIn() {
         />
         <Button disabled={loading}>Entrar</Button>
       </Form>
-        <StyledLink to="/sing-up">
-          Já tem uma conta? Faça Login
-        </StyledLink>
+      <StyledLink to="/sing-up">
+        Já tem uma conta? Faça login
+      </StyledLink>
     </Container>
   )
 }
