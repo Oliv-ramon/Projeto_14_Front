@@ -1,5 +1,7 @@
-import SignUp from './SignUp/SignUp.js';
+import SignIn from "./SignIn";
+import SignUP from "./SignUp";
 
 export {
-  SignUp
-};
+  SignUP,
+  SignIn,
+}

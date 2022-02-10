@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { SignUp } from './pages'
+import { AuthProvider } from "./contexts/AuthContext";
+import { SignIn, SignUp } from "./pages";
 
 function App()  {
   return (
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<h1>Olá Mundo!!! e digo mais, Hello World!!</h1>}/>
-            
-            <Route path="/sign-up"
-              element={< SignUp />}
-            />
-            
-          </Routes>
-        </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={"<MainPage/>"}/>
+          <Route path="/sign-up" element={<SignUp/>}/>
+          <Route path="/sign-in" element={<SignIn/>}/>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
