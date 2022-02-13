@@ -17,6 +17,11 @@ const MainTitle = styled.div`
   }
 `;
 
+const LogoutButton = styled.div`
+  display: flex;
+`;
+
+
 const SearchBar = styled.div`
 width: 100%;
 height: 40px;
@@ -90,7 +95,6 @@ gap: 21px 21px;
 
 const ItemCard = styled.li`
 width: 42%;
-height: 220px;
 padding: 5px;
 display: flex;
 flex-direction: column;
@@ -100,7 +104,7 @@ border-radius: 10px;
 background-color: #232227;
 font-weight: 700;
 & img {
-  width: 95%;
+  width: 70%;
   margin: 0 auto auto auto;
   object-fit: contain;
 }
@@ -145,4 +149,4 @@ background-color: #000000;
 `;
 
 
-export { MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ItemCard, Footer, Header };
+export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ItemCard, Footer, Header };

@@ -4,9 +4,9 @@ import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
 import api from '../../services/api.js';
 
-import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header } from '../../components';
+import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header } from '../../components';
 
-import { HelmetIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
+import { LogoutIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
 
 export default function MainPage() {
@@ -24,8 +24,11 @@ export default function MainPage() {
   return (
     <Container>
       <Header>
-        <HelmetIcon size='42px' color='#424246' />
-        <ProfileIcon size='42px' color='#555' />
+        <LogoutButton>
+          <LogoutIcon size='32px' color='#424246' />
+        </LogoutButton>
+        
+        <ProfileIcon size='32px' color='#555' />
       </Header>
       <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
 

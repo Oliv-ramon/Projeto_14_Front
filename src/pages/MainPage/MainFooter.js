@@ -13,15 +13,15 @@ export default function MainFooter() {
   return (
     <Footer>
       <HomeIcon
-        size='42px'
+        size='28px'
         color={footerSelected.home === true ? '#4573E0' : '#535353'}
         onClick={() => handleFooterClick('home')} />
       <CartIcon
-        size='42px'
+        size='28px'
         color={footerSelected.cart === true ? '#4573E0' : '#535353'}
         onClick={() => handleFooterClick('cart')} />
       <PersonIcon
-        size='42px'
+        size='28px'
         color={footerSelected.user === true ? '#4573E0' : '#535353'}
         onClick={() => handleFooterClick('user')} />
     </Footer>
