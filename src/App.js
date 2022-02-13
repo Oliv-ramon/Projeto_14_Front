@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { AuthProvider, CartProvider } from "./contexts";
-import { SignIn, SignUp, Cart } from "./pages";
+import { SignIn, SignUp, Cart, SuccessefullPurchase } from "./pages";
 
 function App()  {
   return (
@@ -14,6 +14,7 @@ function App()  {
             <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/sign-in" element={<SignIn/>}/>
             <Route path="/cart" element={<Cart/>}/>
+            <Route path="/successfull-purchase" element={<SuccessefullPurchase/>}/>
           </Routes>
         </BrowserRouter>
       </CartProvider>

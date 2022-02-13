@@ -25,8 +25,18 @@ function getCartItens(token) {
   return promisse;
 }
 
-function deleteCartItem( itemId, token) {
+function deleteCartItem(itemId, token) {
   const promisse = axios.delete(`${BASE_URL}/cart/${itemId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return promisse;
+}
+
+function postPurchase(purchasedItens, token) {
+  const promisse = axios.post(`${BASE_URL}/purchase`, purchasedItens, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -40,6 +50,7 @@ const api = {
   signIn,
   getCartItens,
   deleteCartItem,
+  postPurchase,
 }
 
 export default api;
