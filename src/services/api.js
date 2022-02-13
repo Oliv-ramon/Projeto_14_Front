@@ -15,9 +15,19 @@ function signIn(formData) {
   return promisse;
 }
 
+function getProducts(categoryFilter) {
+  let queryURL = BASE_URL + '/products';
+  if (categoryFilter !== '') {
+    queryURL = queryURL + `?cat=${categoryFilter}`;
+  }
+  const productsPromise = axios.get(queryURL);
+  return productsPromise;
+}
+
 const api = {
   signUp,
   signIn,
+  getProducts
 }
 
 export default api;

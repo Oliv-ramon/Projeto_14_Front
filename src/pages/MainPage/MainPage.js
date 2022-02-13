@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-//
-import axios from 'axios';
-//
+
 import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
+import api from '../../services/api.js';
 
 import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header, BlueHelmet, WhiteHelmet } from '../../components';
 
@@ -11,23 +10,16 @@ import { HelmetIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons
 
 
 export default function MainPage() {
-  const [productsArray, SetProductsArray] = useState([]);
+  const [productsArray, setProductsArray] = useState([]);
+  const [categoryFilter, setCategoryFilter] = useState('');
 
-
-  function testGet() {
-    console.log('called testGet!');
-    //
-    const productsPromise = axios.get("http://localhost:5000/products");
-    productsPromise.then(resp => {
-      console.log(resp.data);
-      SetProductsArray(resp.data);
-    })
-    //
-  }
-
-  useEffect(testGet, []);
-
-
+  useEffect(() => {
+    const productsPromise = api.getProducts(categoryFilter);
+    productsPromise.then(res => setProductsArray(res.data));
+    productsPromise.catch(error => {
+      console.log(error, '!erro! obtendo produtos!');
+    }); 
+  }, [categoryFilter]);
 
   return (
     <Container>
@@ -49,12 +41,12 @@ export default function MainPage() {
       </SearchBar>
 
       <CategoriesBar>
-        <li>Tudo</li>
-        <li>Capacetes</li>
-        <li>Luvas</li>
-        <li>Jaquetas</li>
-        <li>Calçados</li>
-        <li>Óculos</li>
+        <li onClick={() => setCategoryFilter('')}>Tudo</li>
+        <li onClick={() => setCategoryFilter('HLMT')}>Capacetes</li>
+        <li onClick={() => setCategoryFilter('GLVS')}>Luvas</li>
+        <li onClick={() => setCategoryFilter('JCKT')}>Jaquetas</li>
+        <li onClick={() => setCategoryFilter('BOOT')}>Calçados</li>
+        <li onClick={() => setCategoryFilter('GGLS')}>Óculos</li>
       </CategoriesBar>
 
       <ProductsList>

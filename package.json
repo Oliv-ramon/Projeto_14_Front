@@ -13,8 +13,9 @@
     "styled-components": "^5.3.3"
   },
   "scripts": {
-    "start": "FAST_REFRESH=false react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "FAST_REFRESH=false react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
