@@ -15,9 +15,31 @@ function signIn(formData) {
   return promisse;
 }
 
+function getCartItens(token) {
+  const promisse = axios.get(`${BASE_URL}/cart`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return promisse;
+}
+
+function deleteCartItem( itemId, token) {
+  const promisse = axios.delete(`${BASE_URL}/cart/${itemId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return promisse;
+}
+
 const api = {
   signUp,
   signIn,
+  getCartItens,
+  deleteCartItem,
 }
 
 export default api;

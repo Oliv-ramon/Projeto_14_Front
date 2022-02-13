@@ -1,4 +1,4 @@
-import { Container } from './userForms_styles.js';
+import Container from './FormComponents/Container';
 
 export {
   Container
