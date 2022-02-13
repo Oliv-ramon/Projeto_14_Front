@@ -4,7 +4,7 @@ import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
 import api from '../../services/api.js';
 
-import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header, BlueHelmet, WhiteHelmet } from '../../components';
+import { Container, MainTitle, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header } from '../../components';
 
 import { HelmetIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
