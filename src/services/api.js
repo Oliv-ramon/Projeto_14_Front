@@ -73,6 +73,6 @@ const api = {
   updateCart,
   cleanCart,
   postPurchase,
-}
+};
 
 export default api;
