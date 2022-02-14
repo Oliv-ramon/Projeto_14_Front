@@ -43,7 +43,7 @@ export default function ItemElement({ id, sku, description, image, size, price, 
       <ItemSection>
         <img src={image} alt="foto do produto"/>
         <span className="item-name">{sku}</span>
-        <span className="item-price">{price}</span>
+        <span className="item-price">R$ {price/100}</span>
       </ItemSection>
       <ItemSection>
         <p className="description">{description}</p>
