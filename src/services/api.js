@@ -15,7 +15,6 @@ function signIn(formData) {
   return promisse;
 }
 
-<<<<<<< HEAD
 function getProducts() {
   try {
     const productsPromise = axios.get(`${BASE_URL}/products`);
@@ -24,7 +23,8 @@ function getProducts() {
     console.log(error, '!erro! ao obter produtos');
     return;
   }  
-=======
+}
+
 function getCartItens(token) {
   const promisse = axios.get(`${BASE_URL}/cart`, {
     headers: {
@@ -63,20 +63,17 @@ function postPurchase(purchasedItens, token) {
   });
 
   return promisse;
->>>>>>> main
+
 }
 
 const api = {
   signUp,
   signIn,
-<<<<<<< HEAD
-  getProducts
-=======
+  getProducts,
   getCartItens,
   updateCart,
   cleanCart,
-  postPurchase,
->>>>>>> main
-}
+  postPurchase
+};
 
 export default api;

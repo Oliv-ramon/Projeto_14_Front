@@ -4,7 +4,7 @@ import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
 import api from '../../services/api.js';
 
-import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, Header } from '../../components';
+import { BoxedContainer, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, Header } from '../../components';
 
 import { LogoutIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
@@ -46,8 +46,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <Container>
-      {console.log('original --->', categories)}
+    <BoxedContainer>
       <Header>
         <LogoutButton>
           <LogoutIcon size='32px' color='#424246' />
@@ -89,6 +88,6 @@ export default function MainPage() {
 
       <MainFooter />
 
-    </Container>
+    </BoxedContainer>
   );
 }
