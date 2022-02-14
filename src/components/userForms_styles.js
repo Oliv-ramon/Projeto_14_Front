@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const BoxedContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 5px;
@@ -9,4 +9,4 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export { Container };
+export { BoxedContainer };
