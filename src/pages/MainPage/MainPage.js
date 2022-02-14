@@ -54,7 +54,7 @@ export default function MainPage() {
 
         <ProfileIcon size='32px' color='#555' />
       </Header>
-      <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
+      <MainTitle><h1>Seja bem vindo à Gear Up!</h1></MainTitle>
 
       <SearchBar>
         <SearchField>
