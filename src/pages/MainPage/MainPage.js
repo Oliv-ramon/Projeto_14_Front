@@ -4,7 +4,7 @@ import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
 import api from '../../services/api.js';
 
-import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, itemCategory, ProductsList, Header } from '../../components';
+import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, Header } from '../../components';
 
 import { LogoutIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
@@ -23,20 +23,18 @@ export default function MainPage() {
       { name: 'GGLS', displayName: 'Óculos', selected: false }
     ]);
 
-  function handleCategoryFilter(event) {
-    console.log(event);
-    /*
-    if (filter === '') {
-      setCategory(filter);
+  function handleCategoryFilter(target) {
+    categories.forEach((item) => (item.selected = false));
+    target.selected = true;
+    setCategories([...categories]);
+    setCategory(target.name);
+    if(target.name === '') {
       setFilteredProductsArray(productsArray);
+      return;
     }
-    else {
-      const filteredProducts =
-        productsArray.filter(item => (item.category === filter));
-      console.log(filteredProducts);
-      setFilteredProductsArray(filteredProducts);
-    }
-    */
+    const filteredProducts =
+        productsArray.filter(item => (item.category === target.name));
+    setFilteredProductsArray(filteredProducts);    
   }
 
   useEffect(() => {
@@ -49,6 +47,7 @@ export default function MainPage() {
 
   return (
     <Container>
+      {console.log('original --->', categories)}
       <Header>
         <LogoutButton>
           <LogoutIcon size='32px' color='#424246' />
@@ -70,13 +69,13 @@ export default function MainPage() {
       </SearchBar>
 
       <CategoriesBar>
-        {categories.map((item, index)=> (
-          <itemCategory
+        {categories.map((item, index) => (
+          <ItemCategory
             key={index}
             isSelected={item.selected}
-            onClick={handleCategoryFilter} >
+            onClick={() => handleCategoryFilter(item)} >
               <h2>{item.displayName}</h2>
-          </itemCategory>
+          </ItemCategory>
         ))}
       </CategoriesBar>
 
