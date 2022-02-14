@@ -9,7 +9,7 @@ import ItemElement from "./ItemElement";
 import { BuyButton, CartContainer, Header } from "./style";
 
 export default function Cart() {
-  const { cartItens } = useContext(CartContext);
+  const { cartItens, setCartItens } = useContext(CartContext);
   const { auth, login } = useContext(AuthContext);
   const navigate = useNavigate();
   const total = calcTotal();
@@ -22,22 +22,15 @@ export default function Cart() {
     return total;
   }
 
-/*   async function handlePurchase() {
-    try {
-      await api.postPurchase(cartItens, auth.token);
-      await api.deleteCartItem( "all", auth.token);
-      navigate("/successfull-purchase");
-    } catch {
-      alert("erro, tente novamente")
-    }
-  } */
-
   async function handlePurchase() {
-    console.log(cartItens)
     try {
-      await api.postCart(cartItens, auth.token);
-      
-    } catch {
+/*       await api.postPurchase(cartItens, auth.token); */
+      console.log("tentou")
+      const { data } = await api.cleanCart( auth.token );
+      setCartItens(data);
+/*       navigate("/successfull-purchase"); */
+    } catch (error) {
+      console.log(error)
       alert("erro, tente novamente")
     }
   }
@@ -49,13 +42,13 @@ export default function Cart() {
     }
   }, []);
 
-/*   if (!cartItens.length > 0) {
+  if (!cartItens.length > 0) {
     return (
       <CartContainer>
         <p>Seu carrinho está vazio, adicione itens para fechar o pedido!</p>
       </CartContainer>
     )
-  } */
+  }
 
   return (
     <CartContainer justify="flex-start">
