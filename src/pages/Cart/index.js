@@ -24,15 +24,20 @@ export default function Cart() {
 
   async function handlePurchase() {
     try {
-/*       await api.postPurchase(cartItens, auth.token); */
-      console.log("tentou")
-      const { data } = await api.cleanCart( auth.token );
-      setCartItens(data);
-/*       navigate("/successfull-purchase"); */
+    await api.postPurchase(cartItens, auth.token);
+    const { data } = await api.cleanCart( auth.token );
+    setCartItens(data);
+    navigate("/successfull-purchase");
     } catch (error) {
       console.log(error)
       alert("erro, tente novamente")
     }
+  }
+
+  async function fillCart() {
+    const { data } = await api.getCartItens(auth.token);
+    console.log(data)
+    setCartItens(data);
   }
 
   useEffect(() => {
@@ -40,6 +45,7 @@ export default function Cart() {
       console.log(auth, login)
       navigate("/sign-in")
     }
+    fillCart();
   }, []);
 
   if (!cartItens.length > 0) {
