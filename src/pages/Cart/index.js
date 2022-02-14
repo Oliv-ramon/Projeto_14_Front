@@ -15,7 +15,8 @@ export default function Cart() {
   const total = calcTotal();
 
   function calcTotal() {
-    if (cartItens.length === 0) return 0;
+    if (cartItens.length === 0) return;
+    if (cartItens.length === 1) return cartItens[0].price;
     
     const total = cartItens.reduce((cI, nI) => cI.price + nI.price);
     
@@ -25,9 +26,11 @@ export default function Cart() {
   async function handlePurchase() {
     try {
     await api.postPurchase(cartItens, auth.token);
-    const { data } = await api.cleanCart( auth.token );
+    const { data } = await api.cleanCart(auth.token);
     setCartItens(data);
     navigate("/successfull-purchase");
+/*     const response = await api.updateCart(cartItens, auth.token);
+    console.log(response) */
     } catch (error) {
       console.log(error)
       alert("erro, tente novamente")
