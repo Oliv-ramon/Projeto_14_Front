@@ -27,10 +27,8 @@ export default function ItemElement({ id, sku, description, image, size, price, 
         await api.updateCart(cartItensFiltered, auth.token);
         return setCartItens(cartItensFiltered);
       }
-
-      cartItens[itemId].amount += 1;
-      await api.updateCart(cartItens, auth.token);
-      setCartItens([...cartItens]);
+      
+      return;
     }
 
     cartItens[itemId].amount -= 1;
