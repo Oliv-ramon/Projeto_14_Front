@@ -1,6 +1,6 @@
 import { Item, ItemSection, QuantityController } from "./style";
 
-export default function ItemElement({ sku, description, image, size, price }) {
+export default function ItemElement({ _id, sku, description, image, size, price }) {
   const quantity = 0;
 
   return (

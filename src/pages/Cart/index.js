@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import CartContext from "../../contexts/CartContext";
-import AuthContext from "../../contexts/CartContext";
+import AuthContext from "../../contexts/AuthContext";
 import api from "../../services/api"
 
 import ItemElement from "./ItemElement";
@@ -10,7 +10,7 @@ import { BuyButton, CartContainer, Header } from "./style";
 
 export default function Cart() {
   const { cartItens } = useContext(CartContext);
-  const { auth } = useContext(AuthContext);
+  const { auth, login } = useContext(AuthContext);
   const navigate = useNavigate();
   const total = calcTotal();
 
@@ -22,29 +22,40 @@ export default function Cart() {
     return total;
   }
 
-  async function handlePurchase() {
+/*   async function handlePurchase() {
     try {
       await api.postPurchase(cartItens, auth.token);
       await api.deleteCartItem( "all", auth.token);
       navigate("/successfull-purchase");
     } catch {
-      alert("")
+      alert("erro, tente novamente")
+    }
+  } */
+
+  async function handlePurchase() {
+    console.log(cartItens)
+    try {
+      await api.postCart(cartItens, auth.token);
+      
+    } catch {
+      alert("erro, tente novamente")
     }
   }
 
   useEffect(() => {
     if (!auth?.token) {
+      console.log(auth, login)
       navigate("/sign-in")
     }
   }, []);
 
-  if (!cartItens.length > 0) {
+/*   if (!cartItens.length > 0) {
     return (
       <CartContainer>
         <p>Seu carrinho está vazio, adicione itens para fechar o pedido!</p>
       </CartContainer>
     )
-  }
+  } */
 
   return (
     <CartContainer justify="flex-start">
