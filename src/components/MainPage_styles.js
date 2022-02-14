@@ -67,6 +67,12 @@ const FilterIcon = styled.div`
   color: #FFFFFF;
 `;
 
+const itemCategory = styled.li`
+  font-size: 20px;
+  font-weight: 700;
+  color: yellow; //#535353;
+`;
+
 const CategoriesBar = styled.ul`
 width: 100%;
 height: 50px;
@@ -76,10 +82,8 @@ flex-direction: row;
 align-items: center;
 overflow-x: scroll;
 gap: 14px;
-& li {
-  font-size: 20px;
-  font-weight: 700;
-  color: #535353;
+  & li {
+    color: red; //#535353;
 }
 `;
 
@@ -149,4 +153,4 @@ background-color: #000000;
 `;
 
 
-export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, ItemCard, Footer, Header };
+export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, itemCategory, ProductsList, ItemCard, Footer, Header };

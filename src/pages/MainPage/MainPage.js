@@ -4,22 +4,48 @@ import ProductCard from './ProductCard.js';
 import MainFooter from './MainFooter.js';
 import api from '../../services/api.js';
 
-import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ProductsList, Header } from '../../components';
+import { Container, MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, itemCategory, ProductsList, Header } from '../../components';
 
 import { LogoutIcon, ProfileIcon, SliderIcon } from '../../components/mixedIcons.js';
 
 
 export default function MainPage() {
   const [productsArray, setProductsArray] = useState([]);
-  const [categoryFilter, setCategoryFilter] = useState('');
+  const [filteredProductsArray, setFilteredProductsArray] = useState([]);
+  const [category, setCategory] = useState('');
+  const [categories, setCategories] = useState(
+    [
+      { name: '', displayName: 'Tudo', selected: true },
+      { name: 'HLMT', displayName: 'Capacetes', selected: false },
+      { name: 'GLVS', displayName: 'Luvas', selected: false },
+      { name: 'JCKT', displayName: 'Jaquetas', selected: false },
+      { name: 'BOOT', displayName: 'Calçados', selected: false },
+      { name: 'GGLS', displayName: 'Óculos', selected: false }
+    ]);
+
+  function handleCategoryFilter(event) {
+    console.log(event);
+    /*
+    if (filter === '') {
+      setCategory(filter);
+      setFilteredProductsArray(productsArray);
+    }
+    else {
+      const filteredProducts =
+        productsArray.filter(item => (item.category === filter));
+      console.log(filteredProducts);
+      setFilteredProductsArray(filteredProducts);
+    }
+    */
+  }
 
   useEffect(() => {
-    const productsPromise = api.getProducts(categoryFilter);
-    productsPromise.then(res => setProductsArray(res.data));
-    productsPromise.catch(error => {
-      console.log(error, '!erro! obtendo produtos!');
-    }); 
-  }, [categoryFilter]);
+    const productsPromise = api.getProducts();
+    productsPromise.then(res => {
+      setProductsArray(res.data);
+      setFilteredProductsArray(res.data);
+    });
+  }, []);
 
   return (
     <Container>
@@ -27,7 +53,7 @@ export default function MainPage() {
         <LogoutButton>
           <LogoutIcon size='32px' color='#424246' />
         </LogoutButton>
-        
+
         <ProfileIcon size='32px' color='#555' />
       </Header>
       <MainTitle><h1>Seja bem vindo à _boot_Store!</h1></MainTitle>
@@ -44,16 +70,18 @@ export default function MainPage() {
       </SearchBar>
 
       <CategoriesBar>
-        <li onClick={() => setCategoryFilter('')}>Tudo</li>
-        <li onClick={() => setCategoryFilter('HLMT')}>Capacetes</li>
-        <li onClick={() => setCategoryFilter('GLVS')}>Luvas</li>
-        <li onClick={() => setCategoryFilter('JCKT')}>Jaquetas</li>
-        <li onClick={() => setCategoryFilter('BOOT')}>Calçados</li>
-        <li onClick={() => setCategoryFilter('GGLS')}>Óculos</li>
+        {categories.map((item, index)=> (
+          <itemCategory
+            key={index}
+            isSelected={item.selected}
+            onClick={handleCategoryFilter} >
+              <h2>{item.displayName}</h2>
+          </itemCategory>
+        ))}
       </CategoriesBar>
 
       <ProductsList>
-        {productsArray.map(item => (
+        {filteredProductsArray.map(item => (
           <ProductCard key={item.sku} >
             {item}
           </ProductCard>

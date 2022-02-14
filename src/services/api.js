@@ -15,13 +15,14 @@ function signIn(formData) {
   return promisse;
 }
 
-function getProducts(categoryFilter) {
-  let queryURL = BASE_URL + '/products';
-  if (categoryFilter !== '') {
-    queryURL = queryURL + `?cat=${categoryFilter}`;
-  }
-  const productsPromise = axios.get(queryURL);
-  return productsPromise;
+function getProducts() {
+  try {
+    const productsPromise = axios.get(`${BASE_URL}/products`);
+    return productsPromise;
+  } catch (error) {
+    console.log(error, '!erro! ao obter produtos');
+    return;
+  }  
 }
 
 const api = {
