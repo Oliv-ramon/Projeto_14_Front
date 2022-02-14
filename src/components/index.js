@@ -1,5 +1,5 @@
 import { Container } from './userForms_styles.js';
-import { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, ItemCard, Header, Footer } from './MainPage_styles.js';
+import { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, ItemCard, Header, Footer, AddToCartIcon} from './MainPage_styles.js';
 
 export {
   Container,
@@ -14,5 +14,6 @@ export {
   ProductsList,
   ItemCard,
   Header,
-  Footer
+  Footer,
+  AddToCartIcon
 };

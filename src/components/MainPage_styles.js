@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
+import { FaCartPlus } from 'react-icons/fa';
 
 const MainTitle = styled.div`
   width: 100%;
@@ -97,6 +98,7 @@ gap: 21px 21px;
 const ItemCard = styled.li`
 width: 42%;
 padding: 5px;
+position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -129,6 +131,14 @@ font-weight: 700;
 }
 `;
 
+const AddToCartIcon = styled(FaCartPlus)`
+  size: 20px;
+  color: #535353;  
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+
 const Header = styled.div`
 width: 100%;
 height: 60px;
@@ -149,5 +159,4 @@ justify-content: space-between;
 background-color: #000000;
 `;
 
-
-export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, ItemCard, Footer, Header };
+export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, ItemCard, Footer, Header, AddToCartIcon};
