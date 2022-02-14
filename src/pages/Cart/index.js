@@ -7,6 +7,7 @@ import api from "../../services/api"
 
 import ItemElement from "./ItemElement";
 import { BuyButton, CartContainer, Header } from "./style";
+import { Footer } from "../../components";
 
 export default function Cart() {
   const { cartItens, setCartItens } = useContext(CartContext);
@@ -77,6 +78,7 @@ export default function Cart() {
           />
           ))}
       </ul>
+      <Footer/>
       </CartContainer>
   )
 }

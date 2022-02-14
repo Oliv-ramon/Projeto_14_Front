@@ -156,7 +156,7 @@ padding: 10px 17px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-background-color: #000000;
+background-color: #161618;
 `;
 
 export { MainTitle, LogoutButton, SearchBar, SearchField, CustomLoupe, FilterIcon, CategoriesBar, ItemCategory, ProductsList, ItemCard, Footer, Header, AddToCartIcon};
