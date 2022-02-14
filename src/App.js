@@ -1,33 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-<<<<<<< HEAD
-import { SignIn, SignUp, MainPage } from "./pages";
-
-import { AuthProvider } from "./contexts/AuthContext";
-
-=======
 import { AuthProvider, CartProvider } from "./contexts";
-import { SignIn, SignUp, Cart, SuccessefullPurchase } from "./pages";
->>>>>>> main
+import { SignIn, SignUp, MainPage, Cart, SuccessefullPurchase } from "./pages";
 
 function App()  {
   return (
     <AuthProvider>
-<<<<<<< HEAD
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage/>}/>
-          <Route path="/sign-up" element={<SignUp/>}/>
-          <Route path="/sign-in" element={<SignIn/>}/>
-          <Route path="/home" element={< MainPage />} />
-        </Routes>
-      </BrowserRouter>
-=======
       <CartProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={"<MainPage/>"}/>
+            <Route path="/" element={<MainPage/>}/>
             <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/sign-in" element={<SignIn/>}/>
             <Route path="/cart" element={<Cart/>}/>
@@ -35,7 +18,6 @@ function App()  {
           </Routes>
         </BrowserRouter>
       </CartProvider>
->>>>>>> main
     </AuthProvider>
   )
 }
