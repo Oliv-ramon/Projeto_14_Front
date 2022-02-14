@@ -1,19 +1,19 @@
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom";
 
-import { Container, Form, Input, Button, StyledLink } from "../components/FormComponents";
+import { Container, Form, Input, Button, StyledLink } from "../../components/FormComponents";
 
-import AuthContext from "../contexts/AuthContext";
-import api from "../services/api";
+import api from "../../services/api";
 
 export default function SignIn() {
   const [formData, setFormData] = useState(
     {
+      name: "",
       email: "",
       password: "",
+      passwordConfirm: "",
     }
   );
-  const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -25,12 +25,17 @@ export default function SignIn() {
     e.preventDefault();
 
     setLoading(true);
+
+    const passwordDontMatch = formData.password !== formData.passwordConfirm;
+    if(passwordDontMatch) {
+      setLoading(false);
+      return alert("as senhas não coincidem")
+    }
     
     try {
-      const { data } = await api.signIn(formData);
-      login(data);
+      await api.signUp(formData);
       setLoading(false);
-      navigate("/home")
+      navigate("/sign-in")
     } catch {
       setLoading(false);
       alert("Erro, tente novamente");
@@ -41,6 +46,14 @@ export default function SignIn() {
     <Container>
       <h1>Project Name</h1>
       <Form onSubmit={handleSubmit}>
+        <Input
+          name="name"
+          type="text"
+          value={formData.name}
+          placeholder="Nome"
+          onChange={handleChange}
+          required
+        />
         <Input
           name="email"
           type="email"
@@ -57,10 +70,18 @@ export default function SignIn() {
           onChange={handleChange}
           required
         />
-        <Button disabled={loading}>Entrar</Button>
+        <Input
+          name="passwordConfirm"
+          type="password"
+          value={formData.passwordConfirm}
+          placeholder="Confirme a senha"
+          onChange={handleChange}
+          required
+        />
+        <Button disabled={loading}>Cadastrar</Button>
       </Form>
-      <StyledLink to="/sign-up">
-        Primeira vez? Cadastre-se!
+      <StyledLink to="/sign-in">
+        Já tem uma conta? Faça login
       </StyledLink>
     </Container>
   )
