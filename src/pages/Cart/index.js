@@ -16,11 +16,11 @@ export default function Cart() {
 
   function calcTotal() {
     if (cartItens.length === 0) return;
-    if (cartItens.length === 1) return cartItens[0].price;
+    if (cartItens.length === 1) return cartItens[0].price/100;
     
     const total = cartItens.reduce((cI, nI) => cI.price + nI.price);
     
-    return total;
+    return total/100;
   }
 
   async function handlePurchase() {

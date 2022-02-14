@@ -41,7 +41,7 @@ const BuyButton = styled(Button)`
 
 const Item = styled.li`
   width: 100%;
-  padding: 20px;
+  padding: 15px;
 
   background-color: #232227;
   border-radius: 20px;
