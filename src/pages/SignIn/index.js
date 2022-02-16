@@ -30,7 +30,7 @@ export default function SignIn() {
       const { data } = await api.signIn(formData);
       login(data);
       setLoading(false);
-      navigate("/home")
+      navigate("/")
     } catch {
       setLoading(false);
       alert("Erro, tente novamente");
