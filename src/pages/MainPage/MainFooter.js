@@ -5,28 +5,48 @@ import { HomeIcon, CartIcon, PersonIcon } from "../../components/mixedIcons.js";
 import { Footer } from '../../components';
 
 export default function MainFooter() {
-  const [footerSelected, setFooterSelected] = useState({ home: true, cart: false, user: false });
+  const [buttonSelected, setButtonSelected] = useState([
+    { route: "/", selected: true },
+    { route: "/cart", selected: false }, 
+    { route: "/user", selected: false }
+  ]);
   const navigate = useNavigate();
 
-  function handleFooterClick(target) {
-    console.log(target, '+ link to correct page');
-    navigate(target);
+  function handleFooterClick(route) {
+    buttonSelected.forEach(b => {
+      if (b.selected === true) {
+        b.selected = false;
+      }
+      if (b.route === route) {
+        b.selected = true;
+      }
+    });
+    console.log(buttonSelected, "antes")
+    setButtonSelected([...buttonSelected])
+    console.log(buttonSelected, "depois")
+    navigate(route);
+  }
+
+  function itemOnArray(route) {
+    const desiredItem = buttonSelected.find(b => b.route === route);
+
+    return desiredItem;
   }
 
   return (
     <Footer>
       <HomeIcon
         size='28px'
-        color={footerSelected.home === true ? '#4573E0' : '#535353'}
+        color={itemOnArray("/").selected ? '#4573E0' : '#535353'}
         onClick={() => handleFooterClick('/')} />
       <CartIcon
         size='28px'
-        color={footerSelected.cart === true ? '#4573E0' : '#535353'}
-        onClick={() => handleFooterClick('cart')} />
+        color={itemOnArray("/cart").selected ? '#4573E0' : '#535353'}
+        onClick={() => handleFooterClick('/cart')} />
       <PersonIcon
         size='28px'
-        color={footerSelected.user === true ? '#4573E0' : '#535353'}
-        onClick={() => handleFooterClick('user')} />
+        color={itemOnArray("/user").selected ? '#4573E0' : '#535353'}
+        onClick={() => handleFooterClick('/user')} />
     </Footer>
   );
 }

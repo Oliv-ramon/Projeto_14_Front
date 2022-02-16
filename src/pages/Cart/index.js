@@ -7,7 +7,7 @@ import api from "../../services/api"
 
 import ItemElement from "./ItemElement";
 import { BuyButton, CartContainer, Header } from "./style";
-import { Footer } from "../../components";
+import MainFooter from "../MainPage/MainFooter";
 
 export default function Cart() {
   const { cartItens, setCartItens } = useContext(CartContext);
@@ -56,6 +56,7 @@ export default function Cart() {
     return (
       <CartContainer>
         <p>Seu carrinho está vazio, adicione itens para fechar o pedido!</p>
+      <MainFooter/>
       </CartContainer>
     )
   }
@@ -78,7 +79,7 @@ export default function Cart() {
           />
           ))}
       </ul>
-      <Footer/>
+      <MainFooter/>
       </CartContainer>
   )
 }
